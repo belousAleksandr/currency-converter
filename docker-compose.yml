@@ -1,0 +1,28 @@
+version: '2'
+services:
+  node_php:
+    depends_on:
+      - mysql_db_server
+    image: belousaleksandr/php7.1-rep:first-edition
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - mysql_db_server
+
+  mysql_db_server:
+    image: mysql:5.7
+    command: mysqld --innodb-large-prefix=1
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysecretrootpassword
+
+  pma:
+    depends_on:
+      - mysql_db_server
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    links:
+      - mysql_db_server:db
+    environment:
+      - PHP_UPLOAD_MAX_FILESIZE=2048M

@@ -14,6 +14,7 @@
         "symfony/yaml": "3.4.*"
     },
     "require-dev": {
+        "symfony/phpunit-bridge": "^4.3"
     },
     "config": {
         "preferred-install": {
@@ -57,6 +58,12 @@
         "symfony": {
             "allow-contrib": false,
             "require": "3.4.*"
+        }
+    },
+    "repositories": {
+        "phpunit-bridge": {
+            "type": "path",
+            "url": "/unison/vendor/symfony/phpunit-bridge"
         }
     }
 }

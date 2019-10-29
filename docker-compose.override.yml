@@ -1,0 +1,6 @@
+# required for project folder sharing on Linux
+version: '2'
+services:
+  node_php:
+    volumes:
+      - .:/unison
