@@ -28,3 +28,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Util\CurrencyConverter:
+        # inject all services tagged with app.handler as first argument
+        arguments:
+            - !tagged app.currency_source
