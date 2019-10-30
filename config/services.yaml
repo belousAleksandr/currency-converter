@@ -32,3 +32,9 @@ services:
         # inject all services tagged with app.handler as first argument
         arguments:
             - !tagged app.currency_source
+
+    App\Validator\Constraints\CurrencySourceConstraintValidator:
+        # inject all services tagged with app.handler as first argument
+        arguments:
+            - !tagged app.currency_source
+        tags: ['validator.constraint_validator']

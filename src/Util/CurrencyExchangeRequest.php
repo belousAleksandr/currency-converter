@@ -77,6 +77,6 @@ class CurrencyExchangeRequest
      */
     public function setSource(string $source)
     {
-        $this->source = $source;
+        $this->source = strtoupper($source);
     }
 }

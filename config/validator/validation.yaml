@@ -1,0 +1,11 @@
+App\Util\CurrencyExchangeRequest:
+    properties:
+        currencyFrom:
+            - NotBlank: ~
+        currencyTo:
+            - NotBlank: ~
+        amount:
+            - NotBlank: ~
+        source:
+            - NotBlank: ~
+            - App\Validator\Constraints\CurrencySourceConstraint: ~
