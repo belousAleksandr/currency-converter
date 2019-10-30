@@ -38,3 +38,6 @@ services:
         arguments:
             - !tagged app.currency_source
         tags: ['validator.constraint_validator']
+
+    App\Util\CurrencySources\NBUCurrencySource:
+        tags: ['app.currency_source']
