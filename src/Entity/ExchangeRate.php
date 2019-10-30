@@ -29,12 +29,12 @@ class ExchangeRate
     /**
      * @ORM\Column(type="string", length=4)
      */
-    private $сщcurrencyCode;
+    private $currencyCode;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $сщгcourse;
+    private $course;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -70,28 +70,36 @@ class ExchangeRate
         return $this;
     }
 
-    public function getсщcurrencyCode(): ?string
+    /**
+     * @return mixed
+     */
+    public function getCurrencyCode()
     {
-        return $this->сщcurrencyCode;
+        return $this->currencyCode;
     }
 
-    public function setсщcurrencyCode(string $сщcurrencyCode): self
+    /**
+     * @param mixed $currencyCode
+     */
+    public function setCurrencyCode($currencyCode)
     {
-        $this->сщcurrencyCode = $сщcurrencyCode;
-
-        return $this;
+        $this->currencyCode = $currencyCode;
     }
 
-    public function getсщгcourse(): ?float
+    /**
+     * @return mixed
+     */
+    public function getCourse()
     {
-        return $this->сщгcourse;
+        return $this->course;
     }
 
-    public function setсщгcourse(float $сщгcourse): self
+    /**
+     * @param mixed $course
+     */
+    public function setCourse($course)
     {
-        $this->сщгcourse = $сщгcourse;
-
-        return $this;
+        $this->course = $course;
     }
 
     public function getSource(): ?string
