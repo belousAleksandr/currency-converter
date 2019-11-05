@@ -32,6 +32,7 @@ services:
         # inject all services tagged with app.handler as first argument
         arguments:
             - !tagged app.currency_source
+            - '@doctrine.orm.entity_manager'
 
     App\Validator\Constraints\CurrencySourceConstraintValidator:
         # inject all services tagged with app.handler as first argument

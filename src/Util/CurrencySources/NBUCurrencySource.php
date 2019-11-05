@@ -40,11 +40,11 @@ class NBUCurrencySource implements CurrencySourceInterface
      * @param CurrencyExchangeRequest $currencyExchangeRequest
      * @return float
      */
-    public function exchange(CurrencyExchangeRequest $currencyExchangeRequest): float
+    public function getCourse(CurrencyExchangeRequest $currencyExchangeRequest): float
     {
         $fromRate = $this->getCurrencyRate($currencyExchangeRequest->getCurrencyFrom());
         $fromTo = $this->getCurrencyRate($currencyExchangeRequest->getCurrencyTo());
-        $result = ($fromRate * $currencyExchangeRequest->getAmount()) / $fromTo;
+        $result = $fromRate / $fromTo;
 
         return round($result, 3);
     }

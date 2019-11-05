@@ -22,14 +22,14 @@ class ExchangeRate
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=4)
      */
-    private $updatedAt;
+    private $currencyCodeFrom;
 
     /**
      * @ORM\Column(type="string", length=4)
      */
-    private $currencyCode;
+    private $currencyCodeTo;
 
     /**
      * @ORM\Column(type="float")
@@ -58,32 +58,36 @@ class ExchangeRate
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    /**
+     * @return string
+     */
+    public function getCurrencyCodeFrom(): string
     {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
+        return $this->currencyCodeFrom;
     }
 
     /**
-     * @return mixed
+     * @param string $currencyCodeFrom
      */
-    public function getCurrencyCode()
+    public function setCurrencyCodeFrom(string $currencyCodeFrom)
     {
-        return $this->currencyCode;
+        $this->currencyCodeFrom = $currencyCodeFrom;
     }
 
     /**
-     * @param mixed $currencyCode
+     * @return string
      */
-    public function setCurrencyCode($currencyCode)
+    public function getCurrencyCodeTo():string
     {
-        $this->currencyCode = $currencyCode;
+        return $this->currencyCodeTo;
+    }
+
+    /**
+     * @param string $currencyCodeTo
+     */
+    public function setCurrencyCodeTo(string $currencyCodeTo)
+    {
+        $this->currencyCodeTo = $currencyCodeTo;
     }
 
     /**

@@ -21,5 +21,5 @@ interface CurrencySourceInterface
      * @param CurrencyExchangeRequest $currencyExchangeRequest
      * @return float
      */
-    public function exchange(CurrencyExchangeRequest $currencyExchangeRequest): float;
+    public function getCourse(CurrencyExchangeRequest $currencyExchangeRequest): float;
 }

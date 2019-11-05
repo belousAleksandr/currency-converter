@@ -19,22 +19,30 @@ class ExchangeRateRepository extends ServiceEntityRepository
         parent::__construct($registry, ExchangeRate::class);
     }
 
-    // /**
-    //  * @return ExchangeRate[] Returns an array of ExchangeRate objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param string $source
+     * @param string $currencyFrom
+     * @param string $currencyTo
+     * @return ExchangeRate|null
+     */
+    public function findSourceCourse(string $source, string $currencyFrom, string $currencyTo)
     {
+        $maxCacheLiveDate = new \DateTime('now');
+        $maxCacheLiveDate->modify('-3 minute');
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('e.source = :source')
+            ->andWhere('e.currencyCodeFrom = :currencyFrom')
+            ->andWhere('e.currencyCodeTo = :currencyTo')
+            ->andWhere('e.createdAt > :maxCacheLiveDate')
+            ->setParameters([
+                'source' => $source,
+                'currencyFrom' => $currencyFrom,
+                'currencyTo' => $currencyTo,
+                'maxCacheLiveDate' => $maxCacheLiveDate
+            ])
             ->getQuery()
-            ->getResult()
-        ;
+            ->getOneOrNullResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?ExchangeRate
